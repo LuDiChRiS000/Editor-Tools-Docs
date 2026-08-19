@@ -197,9 +197,24 @@
 
   /* ── HERO ── */
   .hero {
-    padding: 64px 0 56px;
+    padding: 48px 0 56px;
     border-bottom: 1px solid var(--border);
     margin-bottom: 56px;
+  }
+
+  .hero-banner {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 60px rgba(0,200,255,0.05);
+  }
+
+  .hero-banner img {
+    width: 100%;
+    display: block;
+    border-radius: 9px;
   }
 
   .hero-badge {
@@ -270,21 +285,6 @@
     transition: all 0.2s;
   }
   .btn-secondary:hover { border-color: var(--cyan); color: var(--cyan); background: var(--cyan-glow); }
-
-  /* ── HERO IMAGE ── */
-  .hero-image {
-    margin-top: 40px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow:
-      0 0 0 1px rgba(0,200,255,0.18),
-      0 24px 64px rgba(0,0,0,0.7),
-      inset 0 0 0 1px rgba(255,255,255,0.04);
-  }
-  .hero-image img {
-    width: 100%;
-    display: block;
-  }
 
   /* ── TOOL GRID ── */
   .section-label {
@@ -450,20 +450,18 @@
   /* ── SCREENSHOT PLACEHOLDER ── */
   .screenshot {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
     margin: 24px 0;
     overflow: hidden;
     background: var(--bg-panel);
     position: relative;
-    box-shadow:
-      0 0 0 1px rgba(0,200,255,0.12),
-      0 12px 40px rgba(0,0,0,0.55),
-      inset 0 0 0 1px rgba(255,255,255,0.03);
   }
 
   .screenshot img {
     width: 100%;
     display: block;
+    border-radius: 7px;
   }
 
   .screenshot-placeholder {
@@ -689,15 +687,21 @@
     <a href="#apply-material">Apply Material</a>
     <a href="#rotate-selected">Rotate Selected</a>
     <a href="#replace-with-prefab">Replace With Prefab</a>
+    <a href="#replace-hierarchy-with-prefabs">Replace Hierarchy</a>
     <a href="#collider-copy">Collider Copy</a>
+    <a href="#fbx-collider-builder">FBX Collider Builder</a>
     <a href="#remove-missing-scripts">Remove Missing Scripts</a>
+    <a href="#strip-prefabs-to-mesh">Strip To Mesh</a>
+    <a href="#scaffold-hierarchy">Scaffold Hierarchy</a>
+    <a href="#find-event-systems">Find Event Systems</a>
+    <a href="#prefab-variant-creator">Prefab Variants</a>
     <a href="#take-screenshot">Take Screenshot</a>
     <a href="#floating-motion">Floating Motion</a>
     <a href="#rotator">Rotator</a>
     <a href="#cinemachine-dolly">Cinemachine Dolly</a>
     <a href="#contact">Contact</a>
   </nav>
-  <a href="https://assetstore.unity.com/packages/slug/382386" target="_blank" class="nav-links nav-cta">Get on Asset Store ↗</a>
+  <a href="https://assetstore.unity.com/publishers/36542" target="_blank" class="nav-links nav-cta">Get on Asset Store ↗</a>
 </header>
 
 <div class="layout">
@@ -735,6 +739,30 @@
       <span class="side-icon" style="background:rgba(0,200,255,0.1);border:1px solid #0094cc;">🗑</span>
       Remove Missing Scripts
     </a>
+    <a href="#replace-hierarchy-with-prefabs">
+      <span class="side-icon" style="background:rgba(0,200,255,0.1);border:1px solid #0094cc;">🔁</span>
+      Replace Hierarchy
+    </a>
+    <a href="#fbx-collider-builder">
+      <span class="side-icon" style="background:rgba(0,200,255,0.1);border:1px solid #0094cc;">🧱</span>
+      FBX Collider Builder
+    </a>
+    <a href="#strip-prefabs-to-mesh">
+      <span class="side-icon" style="background:rgba(0,200,255,0.1);border:1px solid #0094cc;">✂</span>
+      Strip Prefabs to Mesh
+    </a>
+    <a href="#scaffold-hierarchy">
+      <span class="side-icon" style="background:rgba(0,200,255,0.1);border:1px solid #0094cc;">🗂</span>
+      Scaffold Hierarchy
+    </a>
+    <a href="#find-event-systems">
+      <span class="side-icon" style="background:rgba(0,200,255,0.1);border:1px solid #0094cc;">🔍</span>
+      Find Event Systems
+    </a>
+    <a href="#prefab-variant-creator">
+      <span class="side-icon" style="background:rgba(0,200,255,0.1);border:1px solid #0094cc;">🧬</span>
+      Prefab Variant Creator
+    </a>
 
     <div class="sidebar-section">Runtime Scripts</div>
     <a href="#take-screenshot">
@@ -766,16 +794,15 @@
 
     <!-- HERO -->
     <section class="hero">
+      <div class="hero-banner">
+        <img src="images/hero.png" alt="Editor Tools - Developer Essentials">
+      </div>
       <div class="hero-badge">✦ Unity Editor Extension</div>
       <h1>Build faster.<br><span class="accent-cyan">Work smarter.</span><br><span class="accent-orange">Ship sooner.</span></h1>
       <p class="hero-sub">A growing collection of lightweight Unity editor and runtime utilities. Each tool solves one real problem, integrates cleanly into the Editor, and adds zero overhead to your project.</p>
       <div class="hero-actions">
-        <a href="https://assetstore.unity.com/packages/slug/382386" target="_blank" class="btn-primary">Get on Asset Store</a>
+        <a href="https://assetstore.unity.com/publishers/36542" target="_blank" class="btn-primary">Get on Asset Store</a>
         <a href="#tools" class="btn-secondary">View All Tools</a>
-      </div>
-
-      <div class="hero-image">
-        <img src="images/hero.png" alt="Editor Tools — Unity Editor Extension">
       </div>
     </section>
 
@@ -783,7 +810,7 @@
     <section id="tools">
       <div class="section-label">Included Tools</div>
       <h2 class="section-heading">Everything in the package</h2>
-      <p class="section-sub">Ten tools, one package. Each one built to cut a repetitive step out of your daily Unity workflow.</p>
+      <p class="section-sub">Sixteen tools, one package. Each one built to cut a repetitive step out of your daily Unity workflow.</p>
 
       <div class="tool-grid">
 
@@ -857,6 +884,48 @@
           <span class="card-tag" style="color:var(--purple);">Runtime + Dependency</span>
         </a>
 
+        <a href="#replace-hierarchy-with-prefabs" class="tool-card" style="--card-accent:var(--cyan);--icon-bg:rgba(0,200,255,0.08);">
+          <div class="card-icon">🔁</div>
+          <div class="card-title">Replace Hierarchy With Prefabs</div>
+          <div class="card-desc">Batch-replace objects in a prefab hierarchy by name-matching against a folder of prefabs. Includes dry-run preview and rotation handling modes.</div>
+          <span class="card-tag">Editor</span>
+        </a>
+
+        <a href="#fbx-collider-builder" class="tool-card" style="--card-accent:var(--cyan);--icon-bg:rgba(0,200,255,0.08);">
+          <div class="card-icon">🧱</div>
+          <div class="card-title">FBX Mesh Collider Builder</div>
+          <div class="card-desc">Adds one MeshCollider per mesh in an FBX onto a selected prefab object. Build a full collision shell from a dedicated collision FBX in one click.</div>
+          <span class="card-tag">Editor</span>
+        </a>
+
+        <a href="#strip-prefabs-to-mesh" class="tool-card" style="--card-accent:var(--cyan);--icon-bg:rgba(0,200,255,0.08);">
+          <div class="card-icon">✂</div>
+          <div class="card-title">Strip Prefabs to Mesh</div>
+          <div class="card-desc">Reduces selected scene prefab instances to bare mesh GameObjects. Unpacks the prefab, promotes the mesh child, and removes everything except Transform, MeshFilter, and MeshRenderer.</div>
+          <span class="card-tag">Editor</span>
+        </a>
+
+        <a href="#scaffold-hierarchy" class="tool-card" style="--card-accent:var(--cyan);--icon-bg:rgba(0,200,255,0.08);">
+          <div class="card-icon">🗂</div>
+          <div class="card-title">Scaffold Scene Hierarchy</div>
+          <div class="card-desc">Creates a set of named separator or folder objects at the root of your scene hierarchy in one click. Fully configurable via a ScriptableObject. Supports Folder in Hierarchy if installed.</div>
+          <span class="card-tag">Editor</span>
+        </a>
+
+        <a href="#find-event-systems" class="tool-card" style="--card-accent:var(--cyan);--icon-bg:rgba(0,200,255,0.08);">
+          <div class="card-icon">🔍</div>
+          <div class="card-title">Find Duplicate Event Systems</div>
+          <div class="card-desc">Scans the scene for all EventSystem components, logs their hierarchy paths, and selects them all so you can identify and remove duplicates instantly.</div>
+          <span class="card-tag">Editor</span>
+        </a>
+
+        <a href="#prefab-variant-creator" class="tool-card" style="--card-accent:var(--cyan);--icon-bg:rgba(0,200,255,0.08);">
+          <div class="card-icon">🧬</div>
+          <div class="card-title">Prefab Variant Creator</div>
+          <div class="card-desc">Batch-creates Prefab Variants from a base prefab, swapping the mesh in each variant for a different FBX. Saves all variants to a chosen output folder in one operation.</div>
+          <span class="card-tag">Editor</span>
+        </a>
+
       </div>
     </section>
 
@@ -876,7 +945,7 @@
         <p>A dockable toolbar window contains the navigation buttons. Dock it into the same tab group as the Project window and it stays there across sessions.</p>
 
         <div class="screenshot">
-          <img src="images/project-browser-navigator-window.png" alt="The Project Navigator window docked alongside the Unity Project Browser">
+          <img src="images/project-browser-navigator-window.png" alt="Project Browser Navigator window">
           <div class="screenshot-caption">The Project Navigator window docked alongside the Unity Project Browser</div>
         </div>
 
@@ -893,7 +962,7 @@
         </ol>
 
         <div class="screenshot">
-          <img src="images/project-browser-navigator-docked.png" alt="Project Navigator docked in context with the Project Browser">
+          <img src="images/project-browser-navigator-docked.png" alt="Project Navigator docked with Project Browser">
           <div class="screenshot-caption">Project Navigator docked in context with the Project Browser</div>
         </div>
 
@@ -902,7 +971,7 @@
 
         <div class="screenshot">
           <img src="images/project-browser-navigator-settings.png" alt="Project Browser Navigator settings asset in the Inspector">
-          <div class="screenshot-caption">Project Browser Navigator settings asset</div>
+          <div class="screenshot-caption">Project Browser Navigator settings asset in the Inspector</div>
         </div>
 
         <table class="props-table">
@@ -946,7 +1015,7 @@
         </div>
 
         <div class="screenshot">
-          <img src="images/apply-material-window.png" alt="The Apply Material to Selection window">
+          <img src="images/apply-material-window.png" alt="Apply Material to Selection window">
           <div class="screenshot-caption">The Apply Material to Selection window</div>
         </div>
 
@@ -1101,7 +1170,7 @@
         <p>Deleted or renamed scripts leave behind null MonoBehaviour entries on GameObjects, which show as "Missing Script" in the Inspector. These cause console warnings and can break serialization. This tool finds and removes them, either from your current selection or from every prefab in the project at once.</p>
 
         <div class="screenshot">
-          <img src="images/remove-missing-scripts.png" alt="Confirmation dialog showing how many missing scripts were removed">
+          <img src="images/remove-missing-scripts.png" alt="Remove Missing Scripts confirmation dialog">
           <div class="screenshot-caption">Confirmation dialog showing how many missing scripts were removed</div>
         </div>
 
@@ -1137,7 +1206,7 @@
         <p>Add TakeScreenshot to any GameObject in your scene to get instant screenshot capture during playtesting or in shipped builds. Screenshots are saved to a <code style="color:var(--orange);background:var(--code-bg);padding:1px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:13px;">/Screenshots/</code> folder at the project root in the Editor, and to <code style="color:var(--orange);background:var(--code-bg);padding:1px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:13px;">Application.persistentDataPath/Screenshots/</code> in builds. Filenames auto-increment so you never overwrite a previous capture.</p>
 
         <div class="screenshot">
-          <img src="images/take-screenshot-inspector.png" alt="TakeScreenshot component in the Unity Inspector">
+          <img src="images/take-screenshot-inspector.png" alt="TakeScreenshot component in the Inspector">
           <div class="screenshot-caption">TakeScreenshot component in the Unity Inspector</div>
         </div>
 
@@ -1174,7 +1243,7 @@
         <p>Floating Motion adds a sinusoidal bob and rotation wobble to a GameObject that feels natural and varied. Each axis gets a random phase offset on Start, so multiple objects in the same scene never move in sync. Useful for pickups, ambient props, floating UI elements, and decorative scene dressing.</p>
 
         <div class="screenshot">
-          <img src="images/floating-motion-inspector.png" alt="FloatingMotion component in the Unity Inspector">
+          <img src="images/floating-motion-inspector.png" alt="FloatingMotion component in the Inspector">
           <div class="screenshot-caption">FloatingMotion component in the Unity Inspector</div>
         </div>
 
@@ -1209,7 +1278,7 @@
         <p>Rotator handles the common need for a continuously spinning or single-pass rotating object, from radar dishes to fan blades to loading spinners. You can drive it at constant speed or use an AnimationCurve to create a spin that starts fast and eases to a stop, spins up slowly, or any custom timing you define.</p>
 
         <div class="screenshot">
-          <img src="images/rotator-inspector.png" alt="Rotator component in the Unity Inspector">
+          <img src="images/rotator-inspector.png" alt="Rotator component in the Inspector">
           <div class="screenshot-caption">Rotator component in the Unity Inspector</div>
         </div>
 
@@ -1255,7 +1324,7 @@
         <p>CinemachineSplineDollyMover automates camera movement along a Cinemachine spline path. Attach it to the same GameObject as your CinemachineSplineDolly and it will animate the camera position from 0 to 1 along the spline over a set duration. Supports ping-pong for back-and-forth motion, configurable easing via an AnimationCurve, and a public API for triggering playback from code or UnityEvents.</p>
 
         <div class="screenshot">
-          <img src="images/cinemachine-dolly-inspector.png" alt="CinemachineSplineDollyMover component in the Unity Inspector">
+          <img src="images/cinemachine-dolly-inspector.png" alt="CinemachineSplineDollyMover component in the Inspector">
           <div class="screenshot-caption">CinemachineSplineDollyMover component in the Unity Inspector</div>
         </div>
 
@@ -1288,6 +1357,286 @@
             <tr><td>Restart()</td><td>Resets position to 0 and begins playback from the start of the spline.</td></tr>
           </tbody>
         </table>
+      </div>
+    </section>
+
+    <!-- ── REPLACE HIERARCHY WITH PREFABS ── -->
+    <section class="tool-section" id="replace-hierarchy-with-prefabs">
+      <div class="tool-header">
+        <div class="tool-icon-lg">🔁</div>
+        <div class="tool-title-block">
+          <h2>Replace Hierarchy With Prefabs <span class="tool-badge badge-editor">Editor</span></h2>
+          <p>Batch-replace objects in a prefab hierarchy by matching names against a folder of prefabs.</p>
+        </div>
+      </div>
+      <div class="tool-body">
+        <p>The single-object Replace With Prefab tool is great for small tasks. This is its batch sibling for when you need to dress an entire prefab at once. Point it at a folder of prefabs, open your target prefab in Prefab Mode (or select a root GameObject in a scene), and it walks the hierarchy replacing every object whose name matches a prefab in the folder. Use the dry-run preview to check what will change before committing.</p>
+
+        <div class="menu-path">
+          Tools <span class="sep">/</span> Editor Tools <span class="sep">/</span> Replace Hierarchy With Prefabs
+        </div>
+
+        <div class="screenshot">
+          <img src="images/replace-hierarchy-window.png" alt="Replace Hierarchy With Prefabs window">
+          <div class="screenshot-caption">Replace Hierarchy With Prefabs window</div>
+        </div>
+
+        <h3 style="color:var(--text-bright);margin:24px 0 12px;font-family:'Rajdhani',sans-serif;font-size:19px;letter-spacing:0.03em;">Usage</h3>
+        <ol class="steps">
+          <li>Open a prefab in Prefab Mode, or select a root GameObject in the scene.</li>
+          <li>Open the window via <strong>Tools &gt; Editor Tools &gt; Replace Hierarchy With Prefabs</strong>.</li>
+          <li>Assign the <strong>Prefab Folder</strong> containing your replacement prefabs.</li>
+          <li>Configure name matching, rotation mode, and other options.</li>
+          <li>Click <strong>Find Matches (Dry Run)</strong> to preview what would be replaced, then click <strong>Replace</strong> to commit.</li>
+        </ol>
+
+        <h3 style="color:var(--text-bright);margin:24px 0 12px;font-family:'Rajdhani',sans-serif;font-size:19px;letter-spacing:0.03em;">Name Match Modes</h3>
+        <table class="props-table">
+          <thead><tr><th>Mode</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Exact</td><td>The GameObject name must exactly match the prefab file name.</td></tr>
+            <tr><td>Ignore Numbering Suffix</td><td>Strips trailing " (Clone)" or " (12)" suffixes before comparing. Default and most useful for typical workflows.</td></tr>
+            <tr><td>Prefab Name is Prefix</td><td>Matches if the GameObject name starts with the prefab name.</td></tr>
+            <tr><td>Contains</td><td>Matches if the GameObject name contains the prefab name anywhere.</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="color:var(--text-bright);margin:24px 0 12px;font-family:'Rajdhani',sans-serif;font-size:19px;letter-spacing:0.03em;">Rotation Modes</h3>
+        <table class="props-table">
+          <thead><tr><th>Mode</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Keep Prefab Default</td><td>Ignores the placeholder's rotation entirely and uses the prefab's authored root rotation.</td></tr>
+            <tr><td>Match Overwrite</td><td>Copies the placeholder's localRotation verbatim onto the new instance.</td></tr>
+            <tr><td>Match, Keep Prefab Axis</td><td>Composes the placeholder's orientation on top of the prefab's authored root rotation. Use this when your FBX imports carry an axis-correction rotation on the root. Default.</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="color:var(--text-bright);margin:24px 0 12px;font-family:'Rajdhani',sans-serif;font-size:19px;letter-spacing:0.03em;">Other Options</h3>
+        <table class="props-table">
+          <thead><tr><th>Option</th><th>Default</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Search Subfolders</td><td>On</td><td>Includes prefabs in subdirectories of the assigned folder.</td></tr>
+            <tr><td>Case Sensitive</td><td>Off</td><td>When disabled, name matching ignores case.</td></tr>
+            <tr><td>Extra Euler Offset</td><td>0,0,0</td><td>Additional rotation applied after the rotation mode calculation. Useful for correcting a known axis offset.</td></tr>
+            <tr><td>Match Existing Scale</td><td>On</td><td>Copies the placeholder's localScale onto the new instance.</td></tr>
+            <tr><td>Keep Original Name</td><td>Off</td><td>Names the new instance after the placeholder rather than the prefab.</td></tr>
+            <tr><td>Skip Already-Correct Instances</td><td>On</td><td>Skips objects that are already an instance of the target prefab.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="tip">
+          <span class="tip-icon">💡</span>
+          <span>The entire Replace operation is a single Undo step. Always use <strong>Find Matches (Dry Run)</strong> first to review the report log before committing.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FBX MESH COLLIDER BUILDER ── -->
+    <section class="tool-section" id="fbx-collider-builder">
+      <div class="tool-header">
+        <div class="tool-icon-lg">🧱</div>
+        <div class="tool-title-block">
+          <h2>FBX Mesh Collider Builder <span class="tool-badge badge-editor">Editor</span></h2>
+          <p>Build a complete collision shell from a dedicated FBX in one click.</p>
+        </div>
+      </div>
+      <div class="tool-body">
+        <p>For complex props and environments it is common to author a separate low-poly collision mesh in your 3D application and export it as its own FBX. This tool takes that collision FBX, extracts every mesh inside it, and adds one MeshCollider component to the selected prefab object for each mesh. The result is a multi-collider physics shell built from your custom geometry in a single operation.</p>
+
+        <div class="menu-path">
+          Tools <span class="sep">/</span> Editor Tools <span class="sep">/</span> FBX Mesh Collider Builder
+        </div>
+
+        <div class="screenshot">
+          <img src="images/fbx-collider-builder-window.png" alt="FBX Mesh Collider Builder window">
+          <div class="screenshot-caption">FBX Mesh Collider Builder window</div>
+        </div>
+
+        <h3 style="color:var(--text-bright);margin:24px 0 12px;font-family:'Rajdhani',sans-serif;font-size:19px;letter-spacing:0.03em;">Usage</h3>
+        <ol class="steps">
+          <li>Open the target prefab in <strong>Prefab Mode</strong> by double-clicking it in the Project window.</li>
+          <li>Select the GameObject within the prefab that should receive the collider components.</li>
+          <li>Open the window via <strong>Tools &gt; Editor Tools &gt; FBX Mesh Collider Builder</strong>.</li>
+          <li>Assign your <strong>Collision FBX</strong> asset and optionally a <strong>Physics Material</strong>.</li>
+          <li>Click <strong>Build Colliders</strong>. The colliders are added and the prefab is marked dirty.</li>
+        </ol>
+
+        <h3 style="color:var(--text-bright);margin:24px 0 12px;font-family:'Rajdhani',sans-serif;font-size:19px;letter-spacing:0.03em;">Window Options</h3>
+        <table class="props-table">
+          <thead><tr><th>Option</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Collision FBX</td><td>The FBX model asset whose meshes will become MeshCollider components. Must be an .fbx file with at least one mesh.</td></tr>
+            <tr><td>Collision Material</td><td>An optional PhysicsMaterial assigned to every generated MeshCollider.</td></tr>
+            <tr><td>Replace Mesh Colliders</td><td>When enabled, any existing MeshCollider components on the target object are removed before the new ones are added. Default is on.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="warning">
+          <span class="tip-icon">⚠</span>
+          <span>This tool only runs while a prefab is open in Prefab Mode. It will not work on scene objects or prefab assets selected in the Project window. The selected object must belong to the prefab currently being edited.</span>
+        </div>
+
+        <div class="tip">
+          <span class="tip-icon">💡</span>
+          <span>All generated colliders are set to <strong>Convex = true</strong>. If you need non-convex colliders (for static geometry), uncheck Convex on each generated MeshCollider after building.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STRIP PREFABS TO MESH ── -->
+    <section class="tool-section" id="strip-prefabs-to-mesh">
+      <div class="tool-header">
+        <div class="tool-icon-lg">✂</div>
+        <div class="tool-title-block">
+          <h2>Strip Prefabs to Mesh <span class="tool-badge badge-editor">Editor</span></h2>
+          <p>Reduce selected prefab instances to bare mesh GameObjects in one menu click.</p>
+        </div>
+      </div>
+      <div class="tool-body">
+        <p>When you need a scene object to be a plain static mesh with no prefab overhead, scripts, or extra components, this tool does the reduction automatically. Select one or more prefab instances in the scene, run the tool, and each one is unpacked, stripped to just its mesh child (with Transform, MeshFilter, and MeshRenderer preserved), and promoted into the original object's place in the hierarchy at the same position, rotation, and scale.</p>
+        <p>The tool picks the mesh to keep intelligently: it first looks for a child whose name matches the prefab (e.g. the "Chair" child of a "Chair" prefab), falls back to the root if it has a MeshFilter, and falls back again to the single mesh in the hierarchy if there is only one. It refuses to guess when multiple meshes exist with no name match, and logs a warning instead.</p>
+
+        <div class="menu-path">
+          Tools <span class="sep">/</span> Editor Tools <span class="sep">/</span> Strip Prefabs To Mesh
+        </div>
+
+        <h3 style="color:var(--text-bright);margin:24px 0 12px;font-family:'Rajdhani',sans-serif;font-size:19px;letter-spacing:0.03em;">Usage</h3>
+        <ol class="steps">
+          <li>Select one or more prefab instances in the scene Hierarchy.</li>
+          <li>Go to <strong>Tools &gt; Editor Tools &gt; Strip Prefabs To Mesh</strong>.</li>
+          <li>The selected objects are unpacked and reduced in place. Check the Console for a summary and any warnings about objects that were skipped.</li>
+        </ol>
+
+        <div class="warning">
+          <span class="tip-icon">⚠</span>
+          <span>This tool operates on scene instances only. Prefab assets selected in the Project window are skipped with a warning. Drag the prefab into a scene first, then run the tool on the scene instance.</span>
+        </div>
+
+        <div class="tip">
+          <span class="tip-icon">💡</span>
+          <span>The entire operation is a single Undo step, so Ctrl+Z / Cmd+Z will restore all stripped objects at once. Check the Console log to see exactly which objects were processed and which were skipped.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SCAFFOLD SCENE HIERARCHY ── -->
+    <section class="tool-section" id="scaffold-hierarchy">
+      <div class="tool-header">
+        <div class="tool-icon-lg">🗂</div>
+        <div class="tool-title-block">
+          <h2>Scaffold Scene Hierarchy <span class="tool-badge badge-editor">Editor</span></h2>
+          <p>Create a clean named folder structure at the root of your scene in one click.</p>
+        </div>
+      </div>
+      <div class="tool-body">
+        <p>Starting a new scene always involves creating the same set of root separator objects: Managers, Environment, Characters, UI, Lighting, and so on. Scaffold Scene Hierarchy creates your full preferred folder structure in one menu click, skipping any that already exist. The folder names are fully configurable via a ScriptableObject settings asset. If the free "Folder in Hierarchy" asset by TheAAA is installed, the tool creates proper tagged folder objects instead of plain empty GameObjects.</p>
+
+        <div class="menu-path">
+          Tools <span class="sep">/</span> Editor Tools <span class="sep">/</span> Scaffold Scene Hierarchy <span class="sep">/</span> Tidy Up Hierarchy
+        </div>
+
+        <div class="screenshot">
+          <img src="images/scaffold-hierarchy.png" alt="Scene hierarchy after scaffolding">
+          <div class="screenshot-caption">Scene hierarchy after running Tidy Up Hierarchy</div>
+        </div>
+
+        <h3 style="color:var(--text-bright);margin:24px 0 12px;font-family:'Rajdhani',sans-serif;font-size:19px;letter-spacing:0.03em;">Usage</h3>
+        <ol class="steps">
+          <li>Go to <strong>Tools &gt; Editor Tools &gt; Scaffold Scene Hierarchy &gt; Tidy Up Hierarchy</strong>. The default folder set is created immediately.</li>
+          <li>To customise the folder names, go to <strong>Tools &gt; Editor Tools &gt; Scaffold Scene Hierarchy &gt; Settings</strong>. This creates and selects a ScaffoldHierarchySettings asset in the Inspector.</li>
+          <li>Edit the <strong>Folder Names</strong> list in the settings asset to match your preferred scene structure.</li>
+          <li>Run Tidy Up Hierarchy again. Only folders that do not already exist in the scene will be created.</li>
+        </ol>
+
+        <h3 style="color:var(--text-bright);margin:24px 0 12px;font-family:'Rajdhani',sans-serif;font-size:19px;letter-spacing:0.03em;">Settings Asset Properties</h3>
+        <table class="props-table">
+          <thead><tr><th>Property</th><th>Default</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Use Folder in Hierarchy</td><td>On</td><td>When enabled and the "Folder in Hierarchy" package by TheAAA is installed, creates tagged folder objects instead of plain GameObjects. Uncheck to always use plain GameObjects regardless.</td></tr>
+            <tr><td>Folder Names</td><td>See below</td><td>The ordered list of folder names to create. Each name becomes one root-level GameObject. Blank entries are skipped.</td></tr>
+          </tbody>
+        </table>
+
+        <p>Default folder names: <code style="color:var(--orange);background:var(--code-bg);padding:2px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:12px;">--- Managers ---</code>, <code style="color:var(--orange);background:var(--code-bg);padding:2px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:12px;">--- Scene ---</code>, <code style="color:var(--orange);background:var(--code-bg);padding:2px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:12px;">--- Environment ---</code>, <code style="color:var(--orange);background:var(--code-bg);padding:2px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:12px;">--- Characters ---</code>, <code style="color:var(--orange);background:var(--code-bg);padding:2px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:12px;">--- UI ---</code>, <code style="color:var(--orange);background:var(--code-bg);padding:2px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:12px;">--- Lighting ---</code>, <code style="color:var(--orange);background:var(--code-bg);padding:2px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:12px;">--- Audio ---</code>, <code style="color:var(--orange);background:var(--code-bg);padding:2px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:12px;">--- FX ---</code>.</p>
+
+        <div class="tip">
+          <span class="tip-icon">💡</span>
+          <span>Each folder creation is an individual Undo step, so Ctrl+Z will remove the folders one at a time. The Console log after each run lists exactly which folders were created and which were skipped because they already existed.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FIND DUPLICATE EVENT SYSTEMS ── -->
+    <section class="tool-section" id="find-event-systems">
+      <div class="tool-header">
+        <div class="tool-icon-lg">🔍</div>
+        <div class="tool-title-block">
+          <h2>Find Duplicate Event Systems <span class="tool-badge badge-editor">Editor</span></h2>
+          <p>Scan the scene for all EventSystem components and select them instantly.</p>
+        </div>
+      </div>
+      <div class="tool-body">
+        <p>Multiple EventSystem components in one scene cause UI input conflicts and console warnings. This is a common problem when merging scenes, importing prefabs, or adding Canvas prefabs that bundle their own EventSystem. This tool finds every EventSystem in the active scene, logs each one with its full hierarchy path, and selects them all in the Hierarchy so you can identify and remove duplicates immediately.</p>
+
+        <div class="menu-path">
+          Tools <span class="sep">/</span> Editor Tools <span class="sep">/</span> Find Duplicate Event Systems
+        </div>
+
+        <h3 style="color:var(--text-bright);margin:24px 0 12px;font-family:'Rajdhani',sans-serif;font-size:19px;letter-spacing:0.03em;">Usage</h3>
+        <ol class="steps">
+          <li>Open the scene you want to check.</li>
+          <li>Go to <strong>Tools &gt; Editor Tools &gt; Find Duplicate Event Systems</strong>.</li>
+          <li>Check the Console. Each EventSystem found is logged with its full path. All found objects are selected in the Hierarchy.</li>
+          <li>Delete any duplicate EventSystems, keeping only one.</li>
+        </ol>
+
+        <div class="tip">
+          <span class="tip-icon">💡</span>
+          <span>If the Console reports only one EventSystem, you're clean. If it reports zero, there is no EventSystem in the scene at all, which means UI input will not work and you should add one via <strong>GameObject &gt; UI &gt; Event System</strong>.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PREFAB VARIANT CREATOR ── -->
+    <section class="tool-section" id="prefab-variant-creator">
+      <div class="tool-header">
+        <div class="tool-icon-lg">🧬</div>
+        <div class="tool-title-block">
+          <h2>Prefab Variant Creator <span class="tool-badge badge-editor">Editor</span></h2>
+          <p>Batch-create Prefab Variants from a base prefab, swapping the mesh in each for a different FBX.</p>
+        </div>
+      </div>
+      <div class="tool-body">
+        <p>When you have a base prefab with materials, scripts, and colliders already configured and want to create a family of variants using different meshes (e.g. chair variants, prop variants, character body variants), this tool handles the batch creation. Assign the base prefab, add your FBX models, choose an output folder, and it generates one Prefab Variant per FBX. Each variant inherits everything from the base prefab and has its mesh swapped to the corresponding FBX.</p>
+        <p>Mesh swapping works by matching mesh names: if a MeshFilter or SkinnedMeshRenderer in the base prefab uses a mesh named "Chair_Body", the tool looks for a mesh of the same name inside each FBX. If no exact match is found, it falls back to the first mesh in the FBX.</p>
+
+        <div class="menu-path">
+          Tools <span class="sep">/</span> Editor Tools <span class="sep">/</span> Prefab Variant Creator
+        </div>
+
+        <div class="screenshot">
+          <img src="images/prefab-variant-creator-window.png" alt="Prefab Variant Creator window">
+          <div class="screenshot-caption">Prefab Variant Creator window</div>
+        </div>
+
+        <h3 style="color:var(--text-bright);margin:24px 0 12px;font-family:'Rajdhani',sans-serif;font-size:19px;letter-spacing:0.03em;">Usage</h3>
+        <ol class="steps">
+          <li>Open the window via <strong>Tools &gt; Editor Tools &gt; Prefab Variant Creator</strong>.</li>
+          <li>Assign your <strong>Base Prefab</strong>. The output folder defaults to the same folder as the base prefab.</li>
+          <li>Optionally click <strong>Browse</strong> to choose a different output folder.</li>
+          <li>Click <strong>+ Add FBX Variant</strong> for each FBX model you want to generate a variant from. The preview label below each slot shows the filename that will be used for the saved prefab.</li>
+          <li>Click <strong>Create Prefab Variants</strong>. A dialog confirms how many variants were created and where they were saved.</li>
+        </ol>
+
+        <div class="tip">
+          <span class="tip-icon">💡</span>
+          <span>Each generated file is a true Unity Prefab Variant, not a copy. Changes to the base prefab (materials, scripts, component settings) will propagate to all variants. Only the mesh is overridden per variant.</span>
+        </div>
+
+        <div class="warning">
+          <span class="tip-icon">⚠</span>
+          <span>The base prefab must contain at least one MeshFilter or SkinnedMeshRenderer for mesh swapping to work. FBX assets must contain meshes — the tool logs a warning and skips any FBX with no mesh data found.</span>
+        </div>
       </div>
     </section>
 
@@ -1324,7 +1673,7 @@
       <h2 class="section-heading">Need help or have ideas?</h2>
       <p class="section-sub">Bug reports, feature requests, and questions are all welcome. New tools are added to this pack over time, so suggestions are especially appreciated.</p>
       <div class="contact-grid">
-        <a href="https://discord.gg/DSUd2QcyChZ" target="_blank" class="contact-card">
+        <a href="https://discord.gg/GEDd5bRjEc" target="_blank" class="contact-card">
           <span class="cc-icon">💬</span>
           <span class="cc-label">Discord</span>
           <span class="cc-sub">Join the community and report issues</span>
@@ -1334,7 +1683,7 @@
           <span class="cc-label">Email</span>
           <span class="cc-sub">Direct support at info@chrisburns.com.au</span>
         </a>
-        <a href="https://assetstore.unity.com/packages/slug/382386" target="_blank" class="contact-card">
+        <a href="https://assetstore.unity.com/publishers/36542" target="_blank" class="contact-card">
           <span class="cc-icon">⭐</span>
           <span class="cc-label">Leave a Review</span>
           <span class="cc-sub">Reviews help the asset reach more developers</span>
@@ -1349,11 +1698,6 @@
           <span class="cc-label">Publisher Page</span>
           <span class="cc-sub">Browse the full asset catalogue</span>
         </a>
-        <a href="https://www.youtube.com/@ChrisBurns3D" target="_blank" class="contact-card">
-          <span class="cc-icon">📺</span>
-          <span class="cc-label">YouTube/@ChrisBurns3D</span>
-          <span class="cc-sub">Visit my YouTube channel</span>
-        </a>
       </div>
     </section>
 
@@ -1365,8 +1709,8 @@
   <span>© 2025 Chris Burns · Editor Tools - Developer Essentials for Unity</span>
   <div class="footer-links">
     <a href="http://www.chrisburns.com.au" target="_blank">chrisburns.com.au</a>
-    <a href="https://discord.gg/DSUd2QcyHZ" target="_blank">Discord</a>
-    <a href="https://assetstore.unity.com/packages/slug/382386" target="_blank">Asset Store</a>
+    <a href="https://discord.gg/GEDd5bRjEc" target="_blank">Discord</a>
+    <a href="https://assetstore.unity.com/publishers/36542" target="_blank">Asset Store</a>
   </div>
 </footer>
 
